@@ -1,15 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>TodoApp</title>
+    <!--meta-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
     {% load staticfiles %}
     <script src="{% static "todoapp/js/todo.js" %}"></script>
-    <title>TodoApp</title>
+
+    <!--stylesheets-->
+    <link rel="stylesheet" href="/static/todoapp/css/todo.css">
+
 </head>
 <body>
-    <h1>Do this stuff!</h1>
+    <section id="background">
+    <h1>Things to DO</h1>
     <ul>
         {% for todo_item in all_items %}
         <li>{{ todo_item.content }}
@@ -21,11 +28,10 @@
         </li>
         {% endfor %}
     </ul>
-    <img src="{% static '/todoapp/css/images/grouphike.jpg' %}" alt="hiking.png" />
-        {% block content %}{% endblock %}
     <form action="/addTodo/" method="post">{% csrf_token %}
         <input type="text" name ="content"/>
         <input type="submit" value="Add"/>
     </form>
+</section>
     </body>
 </html>
