@@ -1,0 +1,12 @@
+body, html{
+    height: 100%
+}
+
+#background {
+    background-image: url("/static/todoapp/css/images/grouphike.JPG");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
