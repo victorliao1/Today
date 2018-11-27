@@ -12,26 +12,33 @@
 
     <!--stylesheets-->
     <link rel="stylesheet" href="/static/todoapp/css/todo.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 
 </head>
 <body>
-    <section id="background">
-    <h1>Things to DO</h1>
-    <ul>
-        {% for todo_item in all_items %}
-        <li>{{ todo_item.content }}
-            <form action="/deleteTodo/{{todo_item.id}}/"
-                style="display: inline;"
-                methodo="post">{% csrf_token %}
-                <input type="submit" value="Delete"/>
-            </form>
-        </li>
-        {% endfor %}
-    </ul>
-    <form action="/addTodo/" method="post">{% csrf_token %}
-        <input type="text" name ="content"/>
-        <input type="submit" value="Add"/>
-    </form>
-</section>
-    </body>
+         <section id="background">
+             <
+        </section>
+                <!-- <div class="imagestyle">
+            <img src="/static/todoapp/css/images/grouphike.JPG">
+        </div> -->
+        <h1>Things to do</h1>
+        <ul>
+            {% for todo_item in all_items %}
+                <li>{{ todo_item.content }}
+                    <form action="/deleteTodo/{{todo_item.id}}/"
+                        style="display: inline;"
+                        methodo="post">{% csrf_token %}
+                        <input type="submit" value="Delete"/>
+                    </form>
+                </li>
+                {% endfor %}
+            </ul>
+        <form action="/addTodo/" method="post">{% csrf_token %}
+            <input type="text" name ="content"/>
+            <input type="submit" value="Add"/>
+        </form>
+
+</body>
 </html>

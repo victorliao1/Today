@@ -16,9 +16,10 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # definition for a list of directories where Django will look for static files
-# STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, "static"),
-# ]
+SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
@@ -28,7 +29,7 @@ SECRET_KEY = 'dx7poe_@jvbs8o(c+*mpdp_j9p(g==aq_7o0e$v+#iglx$fv0r'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['victorliao1.pythonanywhere.com']
+ALLOWED_HOSTS = ['victorliao1.pythonanywhere.com', '127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -122,7 +123,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
-
 MEDIA_URL = '/media/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
