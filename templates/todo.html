@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <title>TodoApp</title>
@@ -7,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    {% load staticfiles %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="{% static "todoapp/js/todo.js" %}"></script>
 
     <!--stylesheets-->
@@ -17,13 +18,10 @@
 
 </head>
 <body>
-         <section id="background">
-             <
-        </section>
-                <!-- <div class="imagestyle">
-            <img src="/static/todoapp/css/images/grouphike.JPG">
-        </div> -->
-        <h1>Things to do</h1>
+        <section id="background">
+        <h1 class = "title">Today</h1>
+        <div class= "centre">
+            <div class= "a">
         <ul>
             {% for todo_item in all_items %}
                 <li>{{ todo_item.content }}
@@ -35,10 +33,15 @@
                 </li>
                 {% endfor %}
             </ul>
-        <form action="/addTodo/" method="post">{% csrf_token %}
-            <input type="text" name ="content"/>
-            <input type="submit" value="Add"/>
-        </form>
+            <form action="/addTodo/" method="post">{% csrf_token %}
+                <input type="text" name ="content"/>
+                <input type="submit" value="Add"/>
+            </form>   
+        </div>     
+    </div>
+
+    </section>
+
 
 </body>
 </html>
