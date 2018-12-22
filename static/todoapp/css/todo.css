@@ -6,6 +6,9 @@ a{
     font-family: 'Lato', sans-serif;
     color: #FFF;
 }
+ul {
+    list-style-type: none;
+}
 
 h1 {
     position:absolute;
@@ -17,6 +20,29 @@ h1 {
 .title {
     font-family: 'Lato', sans-serif;
     color: #FFF;
+}
+
+.my-button{
+    font-size: 1.15em;
+    color: #FFF;
+    padding: 0px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input[type=submit] {
+    color: #FFF;
+    background:#ccc; 
+    border:0 none;
+    cursor:pointer;
+    border-radius: 50%; 
+    text-align: left;
+    width: 15px;
+    height: 15px;
+    opacity: 0.6;
+}
+input[type=submit]:hover{
+    opacity:1.0;
 }
 
 .centre {
