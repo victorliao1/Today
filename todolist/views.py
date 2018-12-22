@@ -3,8 +3,6 @@ from django.http import HttpResponse, HttpResponseRedirect
 from .models import TodoItem
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from datetime import date
-from .forms import addTodo_form
 
 
 @login_required
