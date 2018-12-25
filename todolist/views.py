@@ -3,6 +3,14 @@ from django.http import HttpResponse, HttpResponseRedirect
 from .models import TodoItem
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.forms import UserCreationForm
+from django.urls import reverse_lazy
+from django.views import generic
+
+class SignUp(generic.CreateView):
+    form_class = UserCreationForm
+    success_url = reverse_lazy('login')
+    template_name = 'signup.html'
 
 
 @login_required
@@ -22,7 +30,7 @@ def addTodo(request):
     #create new todo all_items
     new_item = TodoItem(content = request.POST['content'])
     new_item.save()
-    return HttpResponseRedirect('/todolist/')
+    return HttpResponseRedirect('/')
 
 # def addTodo(request):
 #     #create new todo all_items
@@ -33,4 +41,4 @@ def addTodo(request):
 
 def deleteTodo(request, todo_id):
     TodoItem.objects.get(id=todo_id).delete()
-    return HttpResponseRedirect('/todolist/')
+    return HttpResponseRedirect('/')

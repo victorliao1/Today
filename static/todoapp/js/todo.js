@@ -1,4 +1,4 @@
-var rand = Math.floor((Math.random()*20)+1);
+var rand = Math.floor((Math.random()*25)+1);
 var imgCache = new Image();
 imgCache.src = '/static/todoapp/css/images/stock' + rand + '.jpg';
 $(window).on('load', function() {

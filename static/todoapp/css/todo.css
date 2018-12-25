@@ -3,6 +3,10 @@ body, html{
 }
 ul {
     list-style-type: none;
+    padding: 0;
+    text-align: center;
+    margin: auto;
+    display: inline-block;
 }
 
 h1 {
@@ -21,6 +25,12 @@ h1 {
     margin-left: auto;
     margin-right: auto;
 }
+b {
+    font-family: 'Lato', sans-serif;
+    margin-left: auto;
+    margin-right: auto;
+    color: #FFF;
+}
 .my-button{
     font-size: 1.15em;
     color: #FFF;
@@ -29,7 +39,7 @@ h1 {
     margin-right: auto;
 }
 
-input[type=submit] {
+input.main {
     color: #FFF;
     background:#ccc; 
     border:0 none;
@@ -40,7 +50,7 @@ input[type=submit] {
     height: 15px;
     opacity: 0.6;
 }
-input[type=submit]:hover{
+input.main:hover{
     opacity:1.0;
 }
 
@@ -58,5 +68,4 @@ input[type=submit]:hover{
     background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
-    height: 100%;
 }

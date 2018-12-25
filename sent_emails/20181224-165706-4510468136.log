@@ -1,0 +1,19 @@
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Subject: [mysite] Please Confirm Your E-mail Address
+From: webmaster@localhost
+To: victorliao18@gmail.com
+Date: Mon, 24 Dec 2018 21:57:06 -0000
+Message-ID: 
+ <154568862664.13042.15003922816794423782@Victors-MacBook-Pro.local>
+
+Hello from mysite!
+
+You're receiving this e-mail because user victor has given yours as an e-mail address to connect their account.
+
+To confirm this is correct, go to http://localhost:8000/accounts/confirm-email/MQ:1gbYDi:b0eTasOSzoS_ixtnJj7ufDJamBw/
+
+Thank you from mysite!
+http://localhost:8000
+-------------------------------------------------------------------------------

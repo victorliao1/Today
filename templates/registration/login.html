@@ -1,49 +1,79 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Login</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Login</title>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="{% static "todoapp/js/todo.js" %}"></script>
+
+	<link rel="stylesheet" href="/static/todoapp/css/todo.css">
+  	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 </head>
 <body>
-  {% block content %}
+		<script>
+				window.fbAsyncInit = function() {
+				  FB.init({
+					appId      : '533268270417485',
+					xfbml      : true,
+					version    : 'v3.2'
+				  });
+				  FB.AppEvents.logPageView();
+				};
+			  
+				(function(d, s, id){
+				   var js, fjs = d.getElementsByTagName(s)[0];
+				   if (d.getElementById(id)) {return;}
+				   js = d.createElement(s); js.id = id;
+				   js.src = "https://connect.facebook.net/en_US/sdk.js";
+				   fjs.parentNode.insertBefore(js, fjs);
+				 }(document, 'script', 'facebook-jssdk'));
+			  </script>			  
+
+	<section id= "background">
+	<div class="centre">
+		<div class= "b">
+  	{% block content %}
 
     {% if form.errors %}
-    <p>Your username and password didn't match. Please try again.</p>
-{% endif %}
+    	<p>Your username and password didn't match. Please try again.</p>
+	{% endif %}
 
 {% if next %}
-  {% if user.is_authenticated %}
-    <p>Your account doesn't have access to this page. To proceed,
+  	{% if user.is_authenticated %}
+    	<p>Your account doesn't have access to this page. To proceed,
     please login with an account that has access.</p>
-  {% else %}
-    <p>Please login to see this page.</p>
-  {% endif %}
+  	{% else %}
+    	<p>Please login to see this page.</p>
+  	{% endif %}
 {% endif %}
+</div>
 
 <form method="post" action="{% url 'login' %}">
-{% csrf_token %}
-<table>
-
-<tr>
-  <td>{{ form.username.label_tag }}</td>
-  <td>{{ form.username }}</td>
-</tr>
-
-<tr>
-  <td>{{ form.password.label_tag }}</td>
-  <td>{{ form.password }}</td>
-</tr>
-</table>
-
-<input type="submit" value="login" />
-<input type="hidden" name="next" value="{{ next }}" />
+	{% csrf_token %}
+	<table class ="my-button">
+	<tr>
+  		<td>{{ form.username.label_tag }}</td>
+  		<td>{{ form.username }}</td>
+	</tr>
+	<tr>
+  		<td>{{ form.password.label_tag }}</td>
+  		<td>{{ form.password }}</td>
+	</tr>
+	</table>
+	<input type="submit" value="login" />
+	<input type="hidden" name="next" value="{{ next }}" />
 </form>
 
 {# Assumes you setup the password_reset view in your URLconf #}
 <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
 
 {% endblock %}
+</div>
+</section>
 </body>
 </html>
