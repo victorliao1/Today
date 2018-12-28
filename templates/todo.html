@@ -40,7 +40,8 @@
                         </ul>
                     <form action="/addTodo/" method="post">{% csrf_token %}
                         <input type="text" name ="content" maxlength= "100" autocomplete="off"/>
-                        <input type="submit" class="main" value=""/>
+                        
+                        <input id="todaybutton" type="submit" class="main" value=""/>
                     </form>   
                 </div>     
             </div>

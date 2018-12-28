@@ -73,6 +73,21 @@ b {
     margin-right: auto;
     text-align:center;
 }
+#todaybutton {
+    color: #FFF;
+    background:#ccc; 
+    border:0 none;
+    cursor:pointer;
+    border-radius: 50%; 
+    text-align: left;
+    width: 15px;
+    height: 15px;
+    opacity: 0.6;
+}
+#todaybutton:hover{
+    opacity:1.0;
+}
+
 .input {
     position: relative;
     font-size: 1.5em;
