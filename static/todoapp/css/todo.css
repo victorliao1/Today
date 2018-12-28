@@ -29,6 +29,16 @@ h1 {
     margin-left: auto;
     margin-right: auto;
 }
+a:link {
+    color: #fff;
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+  }
+a:active {
+    color: #fff;
+}
+    
 b {
     font-family: 'Lato', sans-serif;
     margin-left: auto;
@@ -42,22 +52,6 @@ b {
     margin-left: auto;
     margin-right: auto;
 }
-
-input.main {
-    color: #FFF;
-    background:#ccc; 
-    border:0 none;
-    cursor:pointer;
-    border-radius: 50%; 
-    text-align: left;
-    width: 15px;
-    height: 15px;
-    opacity: 0.6;
-}
-input.main:hover{
-    opacity:1.0;
-}
-
 .centre {
     position:absolute;
     left: 0;
@@ -79,7 +73,7 @@ input.main:hover{
     margin-right: auto;
     text-align:center;
 }
-/* .input {
+.input {
     position: relative;
     font-size: 1.5em;
     background: linear-gradient(21deg, #10abff, #1beabd);
@@ -125,7 +119,7 @@ input.main:hover{
   ::placeholder {
     color: #cbd0d5;
   }
-  html::after {
+  /* html::after {
     content: '';
     background: linear-gradient(21deg, #10abff, #1beabd);
     height: 3px;
@@ -133,5 +127,4 @@ input.main:hover{
     position: absolute;
     left: 0;
     top: 0;
-  }
-   */
+  } */
