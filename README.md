@@ -1,2 +1,2 @@
 # Today
-Clean and simple web application to keep track of tasks to do today, and act as a dynamic homepage for a browser.
+Clean and simple web application to act as a landscape-based dynamic homepage for a browser, and to keep track of tasks to complete today.
