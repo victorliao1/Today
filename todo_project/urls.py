@@ -15,15 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from todolist.views import todoView, addTodo, deleteTodo, loginpage
+from todolist.views import todoView, addTodo, deleteTodo, loginpage, favicon_view
 
 urlpatterns = [
     path('', todoView),
+    path('favicon.ico', favicon_view),
     path('admin/', admin.site.urls),
     path('accounts/social/login/cancelled/', loginpage),
     path('accounts/password/reset/done/', loginpage),
     path('accounts/password/reset/key/done/', loginpage),
     path('accounts/signup/', loginpage),
+    # path('accounts/logout/', loginpage),
     path('accounts/', include('todolist.urls')),
     path('accounts/',include('allauth.urls')),
     path('todolist/', todoView),
