@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {% load static %}
+{% load tz %}
 <html lang="en">
 <head>
     <title>TodoApp</title>
@@ -17,12 +18,12 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 
 </head>
-    <body>
+    <body onload="startTime()">
         <b>Hi {{ user.get_username }}!</b>
         <br>
         <a href="{% url 'logout'%}">Logout</a>
-        <section id="background">
             <h1 class = "title">Today</h1>
+            <div id="txt" class = "timestyle"></div>
                 <div class= "centre">
                     <div class= "a">
                         <ul>
@@ -39,12 +40,15 @@
                             {% endfor %}
                         </ul>
                     <form action="/addTodo/" method="post">{% csrf_token %}
-                        <input type="text" name ="content" maxlength= "100" autocomplete="off"/>
-                        
-                        <input type="submit" class="main" value=""/>
+                        <p>
+                                <span class="input">
+                                        <input type="text" name ="content" maxlength= "100" autocomplete="off"/>
+                                    <span></span>	
+                                </span>
+                                <input type="submit" class="round-button" value=""/>
+                            </p>
                     </form>   
                 </div>     
             </div>
-        </section>
     </body>
 </html>

@@ -2,8 +2,11 @@ from django.conf import settings
 from django.db import models
 from django.utils import timezone
 from datetime import date
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, AbstractUser
 from django.contrib.auth.mixins import LoginRequiredMixin
+
+# class myUser(AbstractUser):
+#     pass
 
 class TodoItem(models.Model):
     content = models.TextField()

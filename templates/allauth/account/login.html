@@ -47,15 +47,18 @@
             <div class="remember-forgot-section">
                 <input id="id_remember" name="remember" type="checkbox" />
                 
-                <label class ="title" for="id_remember">Remember Me|</label>
+                <label class ="title" for="id_remember">Remember Me</label>
+                &nbsp;
+
 				{% if redirect_field_value %}
 				<input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
 				{% endif %}
 				<button class="btn" type="submit">{% trans "Sign In" %}</button>
 				  <br>
 				  <br>
-				<a href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
-				<a href="/accounts/signup/?next=%2F">Sign Up</a>
+				<a href="{% url 'account_reset_password' %}">{% trans "Forgot Password" %}</a>
+        &nbsp;
+        <a href="/accounts/signup/?next=%2F">Sign Up</a>
 			</div>
 		</form>
 		<div class ="title">or</div>
