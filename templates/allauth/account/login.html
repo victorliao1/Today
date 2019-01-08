@@ -3,73 +3,65 @@
   {% load i18n %}
   {% load account socialaccount %}
   {% providers_media_js %}
-  <html>
-    <head>
+<head>
       <title>Sign In</title>
-      
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
       <script src="{% static "todoapp/js/todo.js" %}"></script>
-  
       <link rel="stylesheet" href="/static/todoapp/css/todo.css">
       <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
       <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">    
-  
-    </head>
-    <body>
-  
-  <h1 class = "title">Login</h1>	  
-  
-  <div class= "centre">
-          <div class= "a">
-  <div class="socialaccount_ballot">
-  <div id="fb-root"></div>
-  
-  <script id="allauth-facebook-settings" type="application/json">
-  {"appId": "533268270417485", "version": "v2.4", "locale": "kr_KR", "initParams": {"appId": "533268270417485", "version": "v2.4"}, "loginOptions": {"auth_type": "reauthenticate", "scope": "email,public_profile,user_friends", "auth_nonce": "rqRaNKz8sa7Nlt1hprFDkKViE9j4vyQd"}, "loginByTokenUrl": "http://localhost:8000/accounts/facebook/login/token/", "cancelUrl": "http://localhost:8000/accounts/social/login/cancelled/", "logoutUrl": "http://localhost:8000/accounts/logout/", "loginUrl": "http://localhost:8000/accounts/facebook/login/", "errorUrl": "http://localhost:8000/accounts/social/login/error/", "csrfToken": "NIa48kkq6ze8f2ZOSDGdvqYJe6DuMXWA0aciWSNVllrRrlAssVwh3LkCOhZd0e0N"}
-  </script>
-  <script type="text/javascript" src="/static/facebook/js/fbconnect.js"></script>
-  
-  <form class="login" method="POST" action="{% url 'account_login' %}">
-          {% csrf_token %}
-            {{ form.non_field_errors }}
-            <p>
-                  <span class="input">
-                      <input id="id_login" class="login-input" maxlength="30" name="login" placeholder="Username" type="text" />{{ form.login.errors }}<br>
-                      <span></span>	
-                  </span>
-              </p>
-              <p>
-                      <span class="input">
-                              <input id="id_password"  class="login-input" name="password" placeholder="Password" type="password" />{{ form.password.errors }}<br>
-                              <span></span>	
-                      </span>
-              </p>      
-            <div class="remember-forgot-section">
-                <input id="id_remember" name="remember" type="checkbox" />
-                
-                <label class ="title" for="id_remember">Remember Me</label>
-                &nbsp;
-
-				{% if redirect_field_value %}
-				<input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-				{% endif %}
-				<button class="btn" type="submit">{% trans "Sign In" %}</button>
-				  <br>
-				  <br>
-				<a href="{% url 'account_reset_password' %}">{% trans "Forgot Password" %}</a>
-        &nbsp;
-        <a href="/accounts/signup/?next=%2F">Sign Up</a>
-			</div>
-		</form>
-		<div class ="title">or</div>
-  <div class="facebook">
-  <a href="{% provider_login_url "facebook" method="js_sdk" %}" class="btn btn-block btn-social btn-facebook" style="background-color:#3b5998;text-align:center">
-      <span class="fa fa-facebook"></span>
-       Sign in with Facebook
-  </a>
-  </div>
-  
-  </div>
-  </div>
+</head>
+<body>
+    <h1 class = "title">Login</h1>	  
+        <div class= "centre">
+            <div class= "a">
+                <div class="socialaccount_ballot">
+                    <div id="fb-root"></div> 
+                    <script id="allauth-facebook-settings" type="application/json">
+                        {"appId": "533268270417485", "version": "v2.4", "locale": "kr_KR", "initParams": {"appId": "533268270417485", "version": "v2.4"}, "loginOptions": {"auth_type": "reauthenticate", "scope": "email,public_profile,user_friends", "auth_nonce": "rqRaNKz8sa7Nlt1hprFDkKViE9j4vyQd"}, "loginByTokenUrl": "http://localhost:8000/accounts/facebook/login/token/", "cancelUrl": "http://localhost:8000/accounts/social/login/cancelled/", "logoutUrl": "http://localhost:8000/accounts/logout/", "loginUrl": "http://localhost:8000/accounts/facebook/login/", "errorUrl": "http://localhost:8000/accounts/social/login/error/", "csrfToken": "NIa48kkq6ze8f2ZOSDGdvqYJe6DuMXWA0aciWSNVllrRrlAssVwh3LkCOhZd0e0N"}
+                    </script>
+                    <script type="text/javascript" src="/static/facebook/js/fbconnect.js"></script>
+                    <form class="login" method="POST" action="{% url 'account_login' %}">
+                        {% csrf_token %}
+                        {{ form.non_field_errors }}
+                        <p>
+                            <span class="input">
+                                <input id="id_login" class="login-input" maxlength="30" name="login" placeholder="Username" type="text" />{{ form.login.errors }}<br>
+                                <span></span>	
+                            </span>
+                        </p>
+                        <p>
+                            <span class="input">
+                                <input id="id_password"  class="login-input" name="password" placeholder="Password" type="password" />{{ form.password.errors }}<br>
+                                <span></span>	
+                            </span>
+                        </p>      
+                        <div class="remember-forgot-section">
+                            <input id="id_remember" name="remember" type="checkbox" />
+                            <label class ="title" for="id_remember">Remember Me</label>
+                            &nbsp;
+				            {% if redirect_field_value %}
+				                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+				            {% endif %}
+				            <button class="btn" type="submit">{% trans "Sign In" %}</button>
+				            <br>
+				            <br>
+				            <a href="{% url 'account_reset_password' %}">{% trans "Forgot Password" %}</a>
+                            &nbsp;
+                            <a href="/accounts/signup/?next=%2F">Sign Up</a>
+			            </div>
+		            </form>
+		            <div class ="title">or</div>
+                        <div class="facebook">
+                            <a href="{% provider_login_url "facebook" method="js_sdk" %}" class="btn btn-block btn-social btn-facebook" style="background-color:#3b5998;text-align:center">
+                                <span class="fa fa-facebook"></span>
+                                Sign in with Facebook
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
   </body>
   </html>

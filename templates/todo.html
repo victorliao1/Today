@@ -1,54 +1,45 @@
 <!DOCTYPE html>
 {% load static %}
 {% load tz %}
-<html lang="en">
 <head>
     <title>TodoApp</title>
-    <!--meta-->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="{% static "todoapp/js/todo.js" %}"></script>
-
-    <!--stylesheets-->
     <link rel="stylesheet" href="/static/todoapp/css/todo.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-
 </head>
-    <body onload="startTime()">
-        <b>Hi {{ user.get_username }}!</b>
-        <br>
-        <a href="{% url 'logout'%}">Logout</a>
-            <h1 class = "title">Today</h1>
-            <div id="txt" class = "timestyle"></div>
-                <div class= "centre">
-                    <div class= "a">
-                        <ul>
-                            {% for todo_item in all_items %}
-                            <div class="my-button">
-                                <li>{{ todo_item.content }}
-                                    <form action="/deleteTodo/{{todo_item.id}}/"
-                                        style="display: inline;"
-                                        methodo="post">{% csrf_token %}
-                                        <input type="submit" class="main" value=""/>
-                                    </form>
-                                </li>
-                            </div>
-                            {% endfor %}
-                        </ul>
-                    <form action="/addTodo/" method="post">{% csrf_token %}
-                        <p>
-                                <span class="input">
-                                        <input type="text" name ="content" maxlength= "100" autocomplete="off"/>
-                                    <span></span>	
-                                </span>
-                                <input type="submit" class="round-button" value=""/>
-                            </p>
-                    </form>   
-                </div>     
-            </div>
+<body onload="startTime()">
+    <b>Hi {{ user.get_username }}!</b>
+    <br>
+    <a href="{% url 'logout'%}">Logout</a>
+    <h1 class = "title">Today</h1>
+    <div id="txt" class = "timestyle"></div>
+        <div class= "centre">
+            <div class= "a">
+                <ul>
+                    {% for todo_item in all_items %}
+                       <div class="my-button">
+                            <li>{{ todo_item.content }}
+                                <form action="/deleteTodo/{{todo_item.id}}/"
+                                    style="display: inline;"
+                                    methodo="post">{% csrf_token %}
+                                    <input type="submit" class="main" value=""/>
+                                </form>
+                            </li>
+                        </div>
+                    {% endfor %}
+                </ul>
+                <form action="/addTodo/" method="post">{% csrf_token %}
+                    <p>
+                        <span class="input">
+                            <input type="text" name ="content" maxlength= "100" autocomplete="off"/>
+                            <span></span>	
+                        </span>
+                        <input type="submit" class="round-button" value=""/>
+                    </p>
+                </form>   
+            </div>     
+        </div>
     </body>
 </html>

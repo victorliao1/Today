@@ -1,23 +1,16 @@
 <!DOCTYPE html>
 {% load i18n %}
 {% load static %}
-<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Logout</title>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="{% static "todoapp/js/todo.js" %}"></script>
-
     <link rel="stylesheet" href="/static/todoapp/css/todo.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">    
-
 </head>
 <body>
-        {% block content %}
+    {% block content %}
         <div class="title">
             <h1>{% trans "Sign Out" %}</h1>
         </div>
@@ -25,17 +18,14 @@
             <div class="centre">
                 <div class="title">
             <p>{% trans 'Are you sure you want to sign out?' %}</p> 
-        </div>
-            {% csrf_token %}
-            {% if redirect_field_value %}
-          <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
-          {% endif %}
-          <button class ="btn" type="submit">{% trans 'Sign Out' %}</button>
-    </div>
-
+            </div>
+                {% csrf_token %}
+                {% if redirect_field_value %}
+                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+                {% endif %}
+                <button class ="btn" type="submit">{% trans 'Sign Out' %}</button>
+            </div>
         </form>
-        
-        
-        {% endblock %}
+    {% endblock %}
 </body>
 </html>
