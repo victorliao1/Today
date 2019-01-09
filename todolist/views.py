@@ -1,12 +1,13 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
-from .models import TodoItem
+from .models import TodoItem, Post
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
 from django.views import generic
 from django.views.generic.base import RedirectView
+from django.utils import timezone
 
 favicon_view = RedirectView.as_view(url='/static/favicon.ico', permanent=True)
 
@@ -33,3 +34,8 @@ def deleteTodo(request, todo_id):
 
 def loginpage(request):
     return HttpResponseRedirect('/accounts/login/')
+
+def post_list(request):
+    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    return render(request, 'post_list.html', {'posts': posts})
+
