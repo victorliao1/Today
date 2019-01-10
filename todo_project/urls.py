@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from todolist.views import todoView, addTodo, deleteTodo, loginpage, favicon_view, post_list
+from todolist.views import todoView, addTodo, deleteTodo, loginpage, favicon_view, post_list, post_detail
 
 urlpatterns = [
     path('', todoView),
@@ -33,4 +33,5 @@ urlpatterns = [
     path('deleteTodo/<int:todo_id>/', deleteTodo),
     path('accounts/', include('django.contrib.auth.urls')),
     path('blog/', post_list),
+    path('blog/post/<int:pk>/', post_detail),
 ]
