@@ -35,6 +35,7 @@ h1 {
     color: #FFF;
 }
 .a {
+    font-size: 1.2em;
     font-family: 'Lato', sans-serif;
     margin-left: auto;
     margin-right: auto;
@@ -81,13 +82,11 @@ b {
     text-align:center;
 }
 
-#background {
+.background {
     background: url(/static/todoapp/css/images/stock8.jpg);
     background-attachment: fixed;
-    background-size: cover;
+    background-size: 100% 100%;
     background-repeat: no-repeat;
-    /* border: 2px solid #333; */
-
 }
 .facebook {
     max-width: 200px;

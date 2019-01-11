@@ -8,7 +8,6 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 #todo list models
 class TodoItem(models.Model):
     content = models.TextField()
-    # user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete="models.CASCADE")
 
 class MyView(LoginRequiredMixin, TodoItem):
     login_url = '/login/'

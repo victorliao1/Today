@@ -1,30 +1,32 @@
 <!DOCTYPE html>
 {% load static %}
-{% load tz %}
-<head>
-    <title>Blog</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <script src="{% static "todoapp/js/blog.js" %}"></script>
-    <link rel="stylesheet" href="/static/todoapp/css/blog.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <head>
+        <title>{{ user.get_username }}'s Blog</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script src="{% static "todoapp/js/blog.js" %}"></script>
+        <link rel="stylesheet" href="/static/todoapp/css/blog.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 </head>
-<body>
-    <div class = "page-header">
-        <h1>{{ user.get_username }}'s Blog</a></h1>
-    </div>
-    <div class="content container">
-            <div class="row">
-                <div class="col-md-8">
-                    {% for post in posts %}
-                        <div class="post-class">
-                            <p>published: {{ post.published_date }}</p>
-                            <h2 class = "subtitle"><a href="{% url 'post_detail' pk=post.pk %}"></a>{{ post.title }}</a></h2>
-                            <p>{{ post.text|linebreaksbr }}</p>
-                        </div>
-                    {% endfor %}
+    <body>
+            <div class="page-header">
+                <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+                <h1>{{ user.get_username }}'s Blog</h1>
+            </div>
+            <div class="content container">
+                <div class="row">
+                    <div class="col-md-8">
+                        {% for post in posts %}
+                            <div class="post-class">
+                                <div class="date">
+                                    <p>published: {{ post.published_date }}</p>
+                                </div>
+                                <h2 class = "subtitle">{{ post.title }}</a></h2>
+                                <p>{{ post.text|linebreaksbr }}</p>
+                            </div>
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
-        </div>
-    </body>
+                    </body>
 </html>
