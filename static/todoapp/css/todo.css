@@ -71,7 +71,6 @@ b {
     margin-right: auto;
     text-align:center;
 }
-
 .signupcentre {
     position:absolute;
     left: 0;
@@ -156,3 +155,9 @@ input[type=submit]:hover{
   ::placeholder {
     color: #cbd0d5;
   }
+
+.bottom-right{
+    position: absolute;
+    right: 0;
+    bottom: 0; 
+}

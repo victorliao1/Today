@@ -28,7 +28,7 @@ urlpatterns = [
     # path('accounts/signup/', loginpage),
     # path('accounts/logout/', loginpage),
     path('accounts/', include('todolist.urls')),
-    path('accounts/',include('allauth.urls')),
+    path('accounts/', include('allauth.urls')),
     path('todolist/', todoView),
     path('addTodo/', addTodo),
     path('deleteTodo/<int:todo_id>/', deleteTodo),

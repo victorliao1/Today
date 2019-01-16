@@ -4,6 +4,7 @@ from django.utils import timezone
 from datetime import date
 from django.contrib.auth.models import User, AbstractUser
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.decorators.csrf import csrf_exempt
 
 #todo list models
 class TodoItem(models.Model):

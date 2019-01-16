@@ -38,8 +38,15 @@
                         </span>
                         <input type="submit" class="round-button" value=""/>
                     </p>
-                </form>   
+                </form>
+                <div>
+                </div>   
             </div>     
         </div>
+        <form action="/blog/" method="post">{% csrf_token %}
+        <div class= "bottom-right">
+                <button class="btn" type= "submit">Blog</button>
+            </div>
+        </form>
     </body>
 </html>
