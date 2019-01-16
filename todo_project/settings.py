@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 
 import os
 import django_heroku
-
+from .secret_settings import *
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -25,7 +25,7 @@ STATICFILES_DIRS = [
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'dx7poe_@jvbs8o(c+*mpdp_j9p(g==aq_7o0e$v+#iglx$fv0r'
+SECRET_KEY = SECRET_KEY_SECRET_SETTING
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -144,10 +144,8 @@ SOCIALACCOUNT_PROVIDERS = \
         'VERIFIED_EMAIL': False,
         'VERSION': 'v2.4'}}
 
-SOCIAL_AUTH_FACEBOOK_KEY = '533268270417485'  # App ID
-SOCIAL_AUTH_FACEBOOK_SECRET ='4524116787e1485e9f9d6361ab5310eb' #app key
 
-SITE_ID = 2
+SITE_ID = 3
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_USERNAME_REQUIRED = True
 
@@ -172,13 +170,13 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 LOGIN_REDIRECT_URL = '/'
-# EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
-# EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'victorliao18@gmail.com'
-EMAIL_HOST_PASSWORD = 'dylfidzfjczipqcq'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+SOCIAL_AUTH_FACEBOOK_KEY = SOCIAL_AUTH_FACEBOOK_KEY_SECRET_SETTING
+SOCIAL_AUTH_FACEBOOK_SECRET = SOCIAL_AUTH_FACEBOOK_SECRET_SECRET_SETTING
+EMAIL_HOST_USER = EMAIL_HOST_USER_SECRET_SETTING
+EMAIL_HOST_PASSWORD = EMAIL_HOST_PASSWORD_SECRET_SETTING
 
 django_heroku.settings(locals())
