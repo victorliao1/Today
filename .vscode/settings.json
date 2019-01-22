@@ -1,3 +1,9 @@
 {
-    "python.pythonPath": "/Users/victorliao/.local/share/virtualenvs/todo-sPK4V2wP/bin/python"
+    "python.pythonPath": "/Users/victorliao/.local/share/virtualenvs/todo-sPK4V2wP/bin/python",
+    "files.associations": {
+        "iostream": "cpp",
+        "vector": "cpp",
+        "string": "cpp",
+        "ostream": "cpp"
+    }
 }
